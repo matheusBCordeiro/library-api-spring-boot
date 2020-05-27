@@ -1,6 +1,7 @@
 package com.matheuscordeiro.libaryapi.api.resource;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.matheuscordeiro.libaryapi.api.dto.BookDTO;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
@@ -31,6 +32,7 @@ public class BookControllerTest {
     @Test
     @DisplayName("Must create a book successfully.")
     public void createBookTest() throws Exception{
+        BookDTO dto = BookDTO.builder().author("Junior").title("Futere").isbn("001").build();
         String json  = new ObjectMapper().writeValueAsString(null);
 
         MockHttpServletRequestBuilder request = MockMvcRequestBuilders
@@ -43,9 +45,9 @@ public class BookControllerTest {
                 .perform(request)
                 .andExpect( status().isCreated() )
                 .andExpect( jsonPath("id").isNotEmpty())
-                .andExpect( jsonPath("title").value("My Book"))
-                .andExpect( jsonPath("author").value("Autor"))
-                .andExpect( jsonPath("isbn").value("123456789"));
+                .andExpect( jsonPath("title").value(dto.getTitle()))
+                .andExpect( jsonPath("author").value(dto.getAuthor()))
+                .andExpect( jsonPath("isbn").value(dto.getIsbn()));
     }
 
     @Test
