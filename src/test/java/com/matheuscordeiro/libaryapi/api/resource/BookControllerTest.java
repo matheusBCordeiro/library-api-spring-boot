@@ -35,14 +35,14 @@ public class BookControllerTest {
     MockMvc mvc;
 
     @MockBean
-    BookService bookService;
+    BookService service;
 
     @Test
     @DisplayName("Must create a book successfully.")
     public void createBookTest() throws Exception{
-        BookDTO dto = BookDTO.builder().author("Junior").title("Futere").isbn("001").build();
-        Book savedBook = Book.builder().id(1L).author("Junior").title("Futere").isbn("001").build();
-        BDDMockito.given(bookService.save(Mockito.any(Book.class))).willReturn(savedBook);
+        BookDTO dto = BookDTO.builder().title("Futere").author("Junior").isbn("001").build();
+        Book savedBook = Book.builder().id(1L).title("Futere").author("Junior").isbn("001").build();
+        BDDMockito.given(service.save(Mockito.any(Book.class))).willReturn(savedBook);
         String json  = new ObjectMapper().writeValueAsString(null);
 
         MockHttpServletRequestBuilder request = MockMvcRequestBuilders
