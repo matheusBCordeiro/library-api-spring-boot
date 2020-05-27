@@ -20,6 +20,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a6fc541d-77a2-49c8-b967-1ed8aa233154" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/matheuscordeiro/libaryapi/model/entity/Book.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/matheuscordeiro/libaryapi/service/BookService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/matheuscordeiro/libaryapi/api/dto/BookDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/matheuscordeiro/libaryapi/api/dto/BookDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/matheuscordeiro/libaryapi/api/resource/BookController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/matheuscordeiro/libaryapi/api/resource/BookController.java" afterDir="false" />
@@ -33,6 +35,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -57,6 +60,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.matheuscordeiro.libaryapi.model.entity" />
       <recent name="com.matheuscordeiro.libaryapi.api.dto" />
     </key>
   </component>
@@ -149,5 +153,9 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="184" y="9" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1590417414365" />
+    <state x="413" y="114" key="extract.method.dialog" timestamp="1590589162039">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="413" y="114" key="extract.method.dialog/0.0.1366.728@0.0.1366.728" timestamp="1590589162039" />
   </component>
 </project>
