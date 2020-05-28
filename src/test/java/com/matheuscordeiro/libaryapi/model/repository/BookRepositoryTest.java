@@ -10,12 +10,14 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.TestEntityManager;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
+import java.util.Optional;
+
 import static org.assertj.core.api.Assertions.assertThat;
 
 @ExtendWith(SpringExtension.class)
 @ActiveProfiles("test")
 @DataJpaTest
-public class BookExceptionTest {
+public class BookRepositoryTest {
     @Autowired
     TestEntityManager entityManager;
 
@@ -26,7 +28,7 @@ public class BookExceptionTest {
     @DisplayName("Must return true when there is a book in the database with informed isbn")
     public void returnTrueWhenIsbnExists() {
         String isbn = "123";
-        Book book = Book.builder().title("Future").author("Juniot").isbn(isbn).build();
+        Book book = createNewBook(isbn);
         entityManager.persist(book);
         boolean exists = repository.existsByIsbn(isbn);
         assertThat(exists).isTrue();
@@ -39,4 +41,19 @@ public class BookExceptionTest {
         boolean exists = repository.existsByIsbn(isbn);
         assertThat(exists).isFalse();
     }
+
+
+    @Test
+    @DisplayName("Must get a book by id")
+    public void findById() {
+        Book book = createNewBook("123");
+        entityManager.persist(book);
+        Optional<Book> foundBook = repository.findById(book.getId());
+        assertThat(foundBook.isPresent()).isTrue();
+    }
+
+    private Book createNewBook(String isbn) {
+        return Book.builder().title("Future").author("Juniot").isbn(isbn).build();
+    }
+
 }

@@ -66,7 +66,7 @@ public class BookServiceTest {
 
     @Test
     @DisplayName("Must get a book by id")
-    public void getById() {
+    public void getByIdTest() {
         Long id = 1L;
         Book book = createValidBook();
         book.setId(id);
@@ -81,7 +81,7 @@ public class BookServiceTest {
 
     @Test
     @DisplayName("Must return empty when obtaining a book with non-existent id in the database")
-    public void bookNotFoundById() {
+    public void bookNotFoundByIdTest() {
         Long id = 1L;
         Mockito.when(repository.findById(id)).thenReturn(Optional.empty());
         Optional<Book> foundBook = service.getById(id);
