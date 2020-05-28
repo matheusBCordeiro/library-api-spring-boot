@@ -1,5 +1,6 @@
 package com.matheuscordeiro.libaryapi.service;
 
+import com.matheuscordeiro.libaryapi.exception.BusinessException;
 import com.matheuscordeiro.libaryapi.model.entity.Book;
 import com.matheuscordeiro.libaryapi.model.repository.BookRepository;
 import com.matheuscordeiro.libaryapi.service.impl.BookServiceImpl;
@@ -31,7 +32,8 @@ public class BookServiceTest {
     @Test
     @DisplayName("Must save a book")
     public void  saveBookTest() {
-        Book book = Book.builder().author("Junior").title("Futere").isbn("001").build();
+        Book book = createValidBook();
+        Mockito.when(repository.existsByIsbn(Mockito.anyString())).thenReturn(false);
         Mockito.when(repository.save(book))
                 .thenReturn(
                         Book.builder()
@@ -46,5 +48,21 @@ public class BookServiceTest {
         assertThat(savedBook.getTitle()).isEqualTo("Future");
         assertThat(savedBook.getAuthor()).isEqualTo("Junior");
         assertThat(savedBook.getIsbn()).isEqualTo("001");
+    }
+
+    @Test
+    @DisplayName("Must should throw a business error when trying to save a book with duplicate isbn")
+    public void shouldNotSaveABookWithDuplicatedIsbn() {
+        Book book = createValidBook();
+        Mockito.when(repository.existsByIsbn(Mockito.anyString())).thenReturn(true);
+        Throwable exception = Assertions .catchThrowable(() -> service.save(book));
+        assertThat(exception)
+                .isInstanceOf(BusinessException.class)
+                .hasMessage("Isbn já cadastrado");
+        Mockito.verify(repository, Mockito.never()).save(book);
+    }
+
+    private Book createValidBook() {
+        return Book.builder().author("Junior").title("Futere").isbn("001").build();
     }
 }

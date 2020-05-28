@@ -1,5 +1,6 @@
 package com.matheuscordeiro.libaryapi.service.impl;
 
+import com.matheuscordeiro.libaryapi.exception.BusinessException;
 import com.matheuscordeiro.libaryapi.model.entity.Book;
 import com.matheuscordeiro.libaryapi.model.repository.BookRepository;
 import com.matheuscordeiro.libaryapi.service.BookService;
@@ -15,6 +16,9 @@ public class BookServiceImpl implements BookService {
 
     @Override
     public Book save(Book book) {
+        if(repository.existsByIsbn(book.getIsbn())){
+            throw new BusinessException("Isbn já cadastrado.");
+        }
         return repository.save(book);
     }
 }

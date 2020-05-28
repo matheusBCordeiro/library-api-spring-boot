@@ -20,11 +20,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a6fc541d-77a2-49c8-b967-1ed8aa233154" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/matheuscordeiro/libaryapi/exception/BusinessException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/matheuscordeiro/libaryapi/api/exeception/ApiErros.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/matheuscordeiro/libaryapi/api/exeception/ApiErros.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/matheuscordeiro/libaryapi/api/resource/BookController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/matheuscordeiro/libaryapi/api/resource/BookController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/matheuscordeiro/libaryapi/api/resource/BookControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/matheuscordeiro/libaryapi/api/resource/BookControllerTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/matheuscordeiro/libaryapi/model/repository/BookRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/matheuscordeiro/libaryapi/model/repository/BookRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/matheuscordeiro/libaryapi/service/impl/BookServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/matheuscordeiro/libaryapi/service/impl/BookServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/matheuscordeiro/libaryapi/service/BookServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/matheuscordeiro/libaryapi/service/BookServiceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -168,9 +167,9 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="184" y="9" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1590417414365" />
-    <state x="413" y="114" key="extract.method.dialog" timestamp="1590687453348">
+    <state x="413" y="114" key="extract.method.dialog" timestamp="1590689669512">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="413" y="114" key="extract.method.dialog/0.0.1366.728@0.0.1366.728" timestamp="1590687453348" />
+    <state x="413" y="114" key="extract.method.dialog/0.0.1366.728@0.0.1366.728" timestamp="1590689669512" />
   </component>
 </project>
