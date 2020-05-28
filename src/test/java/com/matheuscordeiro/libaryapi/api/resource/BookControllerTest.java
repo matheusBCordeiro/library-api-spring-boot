@@ -86,7 +86,7 @@ public class BookControllerTest {
     public void createBookWithDuplicateIsbn() throws Exception{
         BookDTO dto = createNewBook();
         String json  = new ObjectMapper().writeValueAsString(dto);
-        String errorMessage = "Isbn já cadastrado";
+        String errorMessage = "Isbn already registered.";
         BDDMockito.given(service.save(Mockito.any(Book.class)))
                 .willThrow(new BusinessException(errorMessage));
 
@@ -167,7 +167,7 @@ public class BookControllerTest {
         Long id = 1L;
         String json = new ObjectMapper().writeValueAsString(createNewBook());
         Book updatingBook = Book.builder().id(1L).title("some title").author("some author").isbn("321").build();
-        Book updatedBook = Book.builder().id(id).title("Futere").author("Junior").isbn("001").build();
+        Book updatedBook = Book.builder().id(id).title("Pass").author("Daniel").isbn("001").build();
         BDDMockito.given(service.getById(id)).willReturn(Optional.of(updatingBook));
         BDDMockito.given(service.update(updatingBook)).willReturn(updatedBook);
         MockHttpServletRequestBuilder request = MockMvcRequestBuilders

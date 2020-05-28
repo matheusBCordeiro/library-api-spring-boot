@@ -60,7 +60,7 @@ public class BookServiceTest {
         Throwable exception = Assertions .catchThrowable(() -> service.save(book));
         assertThat(exception)
                 .isInstanceOf(BusinessException.class)
-                .hasMessage("Isbn já cadastrado");
+                .hasMessage("Isbn already registered.");
         Mockito.verify(repository, Mockito.never()).save(book);
     }
 
