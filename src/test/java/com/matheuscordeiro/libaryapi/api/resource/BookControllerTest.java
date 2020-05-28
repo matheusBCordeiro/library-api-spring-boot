@@ -161,6 +161,44 @@ public class BookControllerTest {
                 .andExpect(status().isNotFound());
     }
 
+    @Test
+    @DisplayName("Must update a book")
+    public void updateBookTest() throws Exception{
+        Long id = 1L;
+        String json = new ObjectMapper().writeValueAsString(createNewBook());
+        Book updatingBook = Book.builder().id(1L).title("some title").author("some author").isbn("321").build();
+        Book updatedBook = Book.builder().id(id).title("Futere").author("Junior").isbn("001").build();
+        BDDMockito.given(service.getById(id)).willReturn(Optional.of(updatingBook));
+        BDDMockito.given(service.update(updatingBook)).willReturn(updatedBook);
+        MockHttpServletRequestBuilder request = MockMvcRequestBuilders
+                .put(BOOK_API.concat("/" + 1))
+                .content(json)
+                .accept(MediaType.APPLICATION_JSON)
+                .contentType(MediaType.APPLICATION_JSON);
+        mvc
+                .perform(request)
+                .andExpect(status().isOk())
+                .andExpect( jsonPath("id").value(id))
+                .andExpect( jsonPath("title").value(createNewBook().getTitle()))
+                .andExpect( jsonPath("author").value(createNewBook().getAuthor()))
+                .andExpect( jsonPath("isbn").value(createNewBook().getIsbn()));
+    }
+
+    @Test
+    @DisplayName("Must return not found when trying to update a nonexistent book")
+    public void updateInexistentBookTest() throws Exception {
+        String json = new ObjectMapper().writeValueAsString(createNewBook());
+        BDDMockito.given(service.getById(Mockito.anyLong())).willReturn(Optional.empty());
+        MockHttpServletRequestBuilder request = MockMvcRequestBuilders
+                .put(BOOK_API.concat("/" + 1))
+                .content(json)
+                .accept(MediaType.APPLICATION_JSON)
+                .contentType(MediaType.APPLICATION_JSON);
+        mvc
+                .perform(request)
+                .andExpect(status().isNotFound());
+    }
+
     private BookDTO createNewBook() {
         return BookDTO.builder().title("Futere").author("Junior").isbn("001").build();
     }
