@@ -2,6 +2,7 @@ package com.matheuscordeiro.libaryapi.api.resource;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.matheuscordeiro.libaryapi.api.dto.LoanDTO;
+import com.matheuscordeiro.libaryapi.api.dto.ReturnedLoanDTO;
 import com.matheuscordeiro.libaryapi.exception.BusinessException;
 import com.matheuscordeiro.libaryapi.model.entity.Book;
 import com.matheuscordeiro.libaryapi.model.entity.Loan;
@@ -27,6 +28,7 @@ import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import java.time.LocalDate;
 import java.util.Optional;
 
+import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.patch;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 @ExtendWith(SpringExtension.class)
@@ -98,5 +100,22 @@ public class LoanControllerTest {
                 .andExpect(status().isBadRequest())
                 .andExpect(jsonPath("erros", Matchers.hasSize(1)))
                 .andExpect(jsonPath("erros[0]").value("Book not found for passed isbn"));
+    }
+
+    @Test
+    @DisplayName("Must return a book")
+    public void returnBookTest() throws Exception{
+        ReturnedLoanDTO dto = ReturnedLoanDTO.builder().returned(true).build();
+        Loan loan = Loan.builder().id(1L).build()
+        BDDMockito.given(loanService.getById(Mockito.any())).willReturn(Optional.of(loan));
+        String json = new ObjectMapper().writeValueAsString(dto);
+        mvc
+                .perform(
+                        patch(LOAN_API.concat("/1"))
+                        .accept(MediaType.APPLICATION_JSON)
+                        .contentType(MediaType.APPLICATION_JSON)
+                        .content(json)
+                ).andExpect(status().isOk());
+        Mockito.verify(loanService, Mockito.times(1)).update(loan);
     }
 }

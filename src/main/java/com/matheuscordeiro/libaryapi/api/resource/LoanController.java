@@ -1,6 +1,7 @@
 package com.matheuscordeiro.libaryapi.api.resource;
 
 import com.matheuscordeiro.libaryapi.api.dto.LoanDTO;
+import com.matheuscordeiro.libaryapi.api.dto.ReturnedLoanDTO;
 import com.matheuscordeiro.libaryapi.model.entity.Book;
 import com.matheuscordeiro.libaryapi.model.entity.Loan;
 import com.matheuscordeiro.libaryapi.service.BookService;
@@ -34,5 +35,13 @@ public class LoanController {
                 .build();
         entity = loanService.save(entity);
         return entity.getId();
+    }
+
+    @PatchMapping("{id}")
+    @ResponseStatus(HttpStatus.OK)
+    public void returnBook(@PathVariable Long id, @RequestBody ReturnedLoanDTO dto) {
+        Loan loan = loanService.getById(id).get();
+        loan.setReturned(dto.getReturned());
+        loanService.update(loan);
     }
 }
