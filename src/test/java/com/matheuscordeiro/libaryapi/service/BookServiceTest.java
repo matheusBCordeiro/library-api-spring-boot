@@ -97,7 +97,7 @@ public class BookServiceTest {
     }
     @Test
     @DisplayName("Must error should occur when trying to delete a non-existent book")
-    public void deleteInvaldidBookTest() {
+    public void deleteInvalidBookTest() {
         Book book = new Book();
         org.junit.jupiter.api.Assertions.assertThrows(IllegalArgumentException.class ,() -> service.delete(book));
         Mockito.verify(repository, Mockito.never()).delete(book);
@@ -119,7 +119,7 @@ public class BookServiceTest {
     }
     @Test
     @DisplayName("Must error should occur when trying to update a non-existent book")
-    public void updateInvaldidBookTest() {
+    public void updateInvalidBookTest() {
         Book book = new Book();
         org.junit.jupiter.api.Assertions.assertThrows(IllegalArgumentException.class ,() -> service.update(book));
         Mockito.verify(repository, Mockito.never()).save(book);
