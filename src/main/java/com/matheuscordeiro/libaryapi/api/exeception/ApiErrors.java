@@ -2,6 +2,7 @@ package com.matheuscordeiro.libaryapi.api.exeception;
 
 import com.matheuscordeiro.libaryapi.exception.BusinessException;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -12,6 +13,10 @@ public class ApiErrors {
 
     public ApiErrors(BusinessException e) {
         this.errors= Arrays.asList(e.getMessage());
+    }
+
+    public ApiErrors(ResponseStatusException e) {
+        this.errors= Arrays.asList(e.getReason());
     }
 
     public ApiErrors(BindingResult bindingResult) {
