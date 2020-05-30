@@ -20,11 +20,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a6fc541d-77a2-49c8-b967-1ed8aa233154" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/matheuscordeiro/libaryapi/service/EmailService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/matheuscordeiro/libaryapi/service/ScheduleService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/matheuscordeiro/libaryapi/model/repository/LoanRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/matheuscordeiro/libaryapi/model/repository/LoanRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/matheuscordeiro/libaryapi/service/LoanService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/matheuscordeiro/libaryapi/service/LoanService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/matheuscordeiro/libaryapi/service/impl/LoanServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/matheuscordeiro/libaryapi/service/impl/LoanServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/matheuscordeiro/libaryapi/model/repository/LoanRepositoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/matheuscordeiro/libaryapi/model/repository/LoanRepositoryTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/matheuscordeiro/libaryapi/LibaryApiApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/matheuscordeiro/libaryapi/LibaryApiApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,8 +34,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -60,10 +60,10 @@
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.matheuscordeiro.libaryapi.service" />
       <recent name="com.matheuscordeiro.libaryapi.api.dto" />
       <recent name="com.matheuscordeiro.libaryapi.service.impl" />
       <recent name="com.matheuscordeiro.libaryapi.model.repository" />
-      <recent name="com.matheuscordeiro.libaryapi.service" />
       <recent name="com.matheuscordeiro.libaryapi.model.entity" />
     </key>
   </component>
