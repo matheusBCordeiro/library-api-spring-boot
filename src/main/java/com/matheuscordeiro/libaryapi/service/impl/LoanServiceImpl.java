@@ -2,6 +2,7 @@ package com.matheuscordeiro.libaryapi.service.impl;
 
 import com.matheuscordeiro.libaryapi.api.dto.LoanFilterDTO;
 import com.matheuscordeiro.libaryapi.exception.BusinessException;
+import com.matheuscordeiro.libaryapi.model.entity.Book;
 import com.matheuscordeiro.libaryapi.model.entity.Loan;
 import com.matheuscordeiro.libaryapi.model.repository.LoanRepository;
 import com.matheuscordeiro.libaryapi.service.LoanService;
@@ -37,5 +38,10 @@ public class LoanServiceImpl implements LoanService {
     @Override
     public Page<Loan> find(LoanFilterDTO filterDTO, Pageable page) {
         return repository.findByBookIsbnOrCustomer(filterDTO.getIsbn(), filterDTO.getCustomer(), page);
+    }
+
+    @Override
+    public Page<Loan> getLoansByBook(Book book, Pageable pageable) {
+        return repository.findByBook(book, pageable);
     }
 }

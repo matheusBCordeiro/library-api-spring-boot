@@ -1,6 +1,7 @@
 package com.matheuscordeiro.libaryapi.service;
 
 import com.matheuscordeiro.libaryapi.api.dto.LoanFilterDTO;
+import com.matheuscordeiro.libaryapi.model.entity.Book;
 import com.matheuscordeiro.libaryapi.model.entity.Loan;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -15,4 +16,6 @@ public interface LoanService {
     Loan update(Loan loan);
 
     Page<Loan> find(LoanFilterDTO filterDTO, Pageable page);
+
+    Page<Loan> getLoansByBook(Book book, Pageable pageable);
 }
