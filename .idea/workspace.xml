@@ -20,13 +20,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a6fc541d-77a2-49c8-b967-1ed8aa233154" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/matheuscordeiro/libaryapi/api/dto/LoanFilterDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/matheuscordeiro/libaryapi/api/dto/LoanDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/matheuscordeiro/libaryapi/api/dto/LoanDTO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/matheuscordeiro/libaryapi/api/resource/LoanController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/matheuscordeiro/libaryapi/api/resource/LoanController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/matheuscordeiro/libaryapi/service/LoanService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/matheuscordeiro/libaryapi/service/LoanService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/matheuscordeiro/libaryapi/api/resource/LoanControllerTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/matheuscordeiro/libaryapi/api/resource/LoanControllerTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/matheuscordeiro/libaryapi/service/LoanServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/matheuscordeiro/libaryapi/service/LoanServiceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
