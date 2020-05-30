@@ -1,12 +1,16 @@
 package com.matheuscordeiro.libaryapi.api.resource;
 
 import com.matheuscordeiro.libaryapi.api.dto.LoanDTO;
+import com.matheuscordeiro.libaryapi.api.dto.LoanFilterDTO;
 import com.matheuscordeiro.libaryapi.api.dto.ReturnedLoanDTO;
 import com.matheuscordeiro.libaryapi.model.entity.Book;
 import com.matheuscordeiro.libaryapi.model.entity.Loan;
 import com.matheuscordeiro.libaryapi.service.BookService;
 import com.matheuscordeiro.libaryapi.service.LoanService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
@@ -43,5 +47,11 @@ public class LoanController {
         Loan loan = loanService.getById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
         loan.setReturned(dto.getReturned());
         loanService.update(loan);
+    }
+
+    @GetMapping
+    public Page<LoanDTO> find(LoanFilterDTO dto, Pageable page) {
+        Page<Loan> result = loanService.find(dto, page);
+        return null;
     }
 }
