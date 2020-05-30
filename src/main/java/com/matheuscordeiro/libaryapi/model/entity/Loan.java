@@ -21,6 +21,9 @@ public class Loan {
     @Column
     private String customer;
 
+    @Column(name = "costumer_email")
+    private String costumerEmail;
+
     @JoinColumn(name = "id_book")
     @ManyToOne
     private Book book;
