@@ -8,6 +8,8 @@ import com.matheuscordeiro.libaryapi.model.entity.Book;
 import com.matheuscordeiro.libaryapi.model.entity.Loan;
 import com.matheuscordeiro.libaryapi.service.BookService;
 import com.matheuscordeiro.libaryapi.service.LoanService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.data.domain.Page;
@@ -26,6 +28,7 @@ import java.util.stream.Collectors;
 @RestController
 @RequestMapping("/api/books")
 @RequiredArgsConstructor
+@Api("Book API")
 public class BookController {
 
     private final BookService bookService;
@@ -34,6 +37,7 @@ public class BookController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
+    @ApiOperation("Ceates a book")
     public BookDTO create(@RequestBody @Valid BookDTO dto){
         Book entity = modelMapper.map(dto, Book.class);
         entity = bookService.save(entity);
@@ -41,6 +45,7 @@ public class BookController {
     }
 
     @GetMapping("{id}")
+    @ApiOperation("Obtais a book by id")
     public BookDTO getById(@PathVariable Long id) {
         return bookService
                 .getById(id)
@@ -50,12 +55,14 @@ public class BookController {
 
     @DeleteMapping("{id}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
+    @ApiOperation("Deletes a book by id")
     public void delete(@PathVariable Long id) {
         Book book = bookService.getById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
         bookService.delete(book);
     }
 
     @PutMapping({"id"})
+    @ApiOperation("Updates a book")
     public BookDTO update(@PathVariable Long id, BookDTO dto) {
         return bookService.getById(id).map(book -> {
             book.setTitle(dto.getTitle());
@@ -66,6 +73,7 @@ public class BookController {
     }
 
     @GetMapping
+    @ApiOperation("Lists books by params")
     public Page<BookDTO> find(BookDTO dto, Pageable pageRequest) {
         Book filter = modelMapper.map(dto, Book.class);
         Page<Book> result = bookService.find(filter, pageRequest);

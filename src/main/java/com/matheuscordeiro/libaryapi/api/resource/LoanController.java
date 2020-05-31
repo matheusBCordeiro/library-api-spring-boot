@@ -8,6 +8,8 @@ import com.matheuscordeiro.libaryapi.model.entity.Book;
 import com.matheuscordeiro.libaryapi.model.entity.Loan;
 import com.matheuscordeiro.libaryapi.service.BookService;
 import com.matheuscordeiro.libaryapi.service.LoanService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import lombok.RequiredArgsConstructor;
 import org.modelmapper.ModelMapper;
 import org.springframework.data.domain.Page;
@@ -25,6 +27,7 @@ import java.util.stream.Collectors;
 @RestController
 @RequestMapping("/api/books")
 @RequiredArgsConstructor
+@Api("Loan book API")
 public class LoanController {
     private final LoanService loanService;
     private final BookService bookService;
@@ -32,6 +35,7 @@ public class LoanController {
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
+    @ApiOperation("Creates a loan")
     public Long create(@RequestBody LoanDTO dto) {
         Book book = bookService
                 .getBookByIsbn(dto.getIsbn())
@@ -49,6 +53,7 @@ public class LoanController {
 
     @PatchMapping("{id}")
     @ResponseStatus(HttpStatus.OK)
+    @ApiOperation("Return book by id")
     public void returnBook(@PathVariable Long id, @RequestBody ReturnedLoanDTO dto) {
         Loan loan = loanService.getById(id).orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND));
         loan.setReturned(dto.getReturned());
@@ -56,6 +61,7 @@ public class LoanController {
     }
 
     @GetMapping
+    @ApiOperation("Lists a loan")
     public Page<LoanDTO> find(LoanFilterDTO dto, Pageable pageRequest) {
         Page<Loan> result = loanService.find(dto, pageRequest);
         List<LoanDTO> loans= result
