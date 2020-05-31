@@ -12,7 +12,7 @@
 	<artifactId>libary-api</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>libary-api</name>
-	<description>Project for Spring Boot</description>
+	<description>Book rental control project api</description>
 
 	<properties>
 		<java.version>14</java.version>
