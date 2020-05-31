@@ -27,8 +27,10 @@ public class LibaryApiApplication {
 
     @Bean
     public CommandLineRunner runner() {
-        List<String> emails = Arrays.asList("");
-        emailService.sendMail("Testing email service", emails);
+        return args -> {
+            List<String> emails = Arrays.asList("");
+            emailService.sendMail("Testing email service", emails);
+        };
     }
 
 	public static void main(String[] args) {
